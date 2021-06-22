@@ -19,8 +19,8 @@ OS = "Artix"
 KERNEL = `uname -sr`.rstrip
 UPTIME = `uptime -p`[3..-2]
 PACKAGES = `pacman -Q`.count "\n"
-SHELL = ENV["SHELL"].gsub(/.*\//, "")
-WM = ENV["WM"]
+SHELL = ENV["SHELL"]?.to_s.gsub(/.*\//, "")
+WM = ENV["WM"]?.to_s
 
 puts (
 "#{C1}      /\\         #{FONT2+USER+FONT1}@#{FONT2+HOST}
@@ -32,5 +32,3 @@ puts (
 #{C2}/.,'\`     \`'.\\   #{FONT1}WM:        #{RESET+WM}
 #{RESET}"
 )
-
-
